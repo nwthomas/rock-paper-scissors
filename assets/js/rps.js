@@ -1,6 +1,7 @@
 // global variables
 let comparison = 0;
 let totalScore = 0;
+let playerSelection = "";
 
 // computer's choice of rock, paper, or scissors
 function computerPlay() {
@@ -17,17 +18,12 @@ function computerPlay() {
 // plays single round of rock, paper, scissors
 function playRound() {
 
-    // function & global variables
-    let playerSelection = prompt("Please choose rock, paper, or scissors:", "Enter text here...");
-        playerSelection = playerSelection.toLowerCase();
+    // computer choice
     let computerChoice = computerPlay();
-
-    console.log(computerChoice);
 
     // makes sure player choice is valid
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
-        alert("That's not a valid choice. Please re-enter.");
-        playRound();
+        
     } else {
         playerSelection;
     }
@@ -36,39 +32,39 @@ function playRound() {
     // rock comparison
     if (computerChoice === "rock") {
         if (computerChoice === "rock" && playerSelection === "rock") {
-            alert("You tied with the computer.");
+            alert("The computer chose rock. You tied with the computer.");
             return comparison -= 0;
         } else if (computerChoice === "rock" && playerSelection == "paper") {
-            alert("You just beat the computer.");
+            alert("The computer chose rock. You just beat the computer.");
             return comparison = (comparison + 1);
         } else {
-            alert("The computer beat you.");
+            alert("The computer chose rock. The computer beat you.");
             return comparison -= 1;
         }
 
     // paper comparison
     } else if (computerChoice === "paper") {
         if (computerChoice === "paper" && playerSelection === "paper") {
-            alert("You tied with the computer.");
+            alert("The computer chose paper. You tied with the computer.");
             return comparison -= 0;;
         } else if (computerChoice === "paper" && playerSelection == "scissors") {
-            alert("You just beat the computer.");
+            alert("The computer chose paper. You just beat the computer.");
             return comparison = (comparison + 1);
         } else {
-            alert("The computer beat you.");
+            alert("The computer chose paper. The computer beat you.");
             return comparison -= 1;
         }
  
     // scissors comparison
     } else if (computerChoice === "scissors") {
         if (computerChoice === "scissors" && playerSelection === "scissors") {
-            alert("You tied with the computer.");
+            alert("The computer chose scissors. You tied with the computer.");
             return comparison -= 0;
         } else if (computerChoice === "scissors" && playerSelection == "rock") {
-            alert("You just beat the computer.");
+            alert("The computer chose scissors. You just beat the computer.");
             return comparison = (comparison + 1);
         } else {
-            alert("The computer beat you.");
+            alert("The computer chose scissors. The computer beat you.");
             return comparison -= 1;
         }
     
@@ -87,4 +83,9 @@ function game() {
     }
 }
 
-game();
+// new code
+let button = document.querySelectorAll("#btn");
+    button.addEventListener("click", () => {
+    playerSelection = button.value;
+    console.log(playerSelection);
+})
