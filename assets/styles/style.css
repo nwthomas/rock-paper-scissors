@@ -21,7 +21,7 @@ body,html {
 }
 .container {
     position: absolute;
-    top: 40%;
+    top: 44%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
@@ -61,7 +61,7 @@ input, textarea {
 }
 @media screen and (min-width: 600px) {
     .container {
-        top: 50%;
+        top: 54%;
     }
     #text {
         top: 42%;
