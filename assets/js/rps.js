@@ -21,11 +21,11 @@ function computerPlay() {
 function getScore() {
     if (gameNumber == 5) {
         if (comparison == 0) {
-            endingPhrase = " You tied with the computer.";
+            endingPhrase = "<br />" + "You tied with the computer.";
         } else if (comparison > 0) {
-            endingPhrase = " You beat the computer.";
+            endingPhrase = "<br />" + "You beat the computer.";
         } else {
-            endingPhrase = " The computer beat you.";
+            endingPhrase = "<br />" + "The computer beat you.";
         }
     } else {
         return;

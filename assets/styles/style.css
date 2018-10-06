@@ -16,7 +16,8 @@ body,html {
     transform: translate(-50%, -50%);
     justify-content: center;
     font-family: Helvetica, serif;
-    letter-spacing: 0.05em
+    letter-spacing: 0.05em;
+    text-align: center;
 }
 .container {
     position: absolute;
@@ -46,7 +47,6 @@ body,html {
 }
 #btn:active {
     border: 5px solid rgb(225, 109, 104);
-    transition: border .2s;
     color: black;
 }
 .copyright {
