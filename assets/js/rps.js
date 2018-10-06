@@ -1,13 +1,14 @@
 let comparison = 0;
-let totalScore = 0;
 let playerSelection = "";
 const buttons = document.querySelectorAll("input");
+let gameNumber = 0;
+let finalMessage = "";
 
 function computerPlay() {
     let computerSelection = Math.random();
-    if (computerSelection <= 0.34) {
+    if (computerSelection < 0.34) {
         return "rock";
-    } else if (computerSelection <= 0.67) {
+    } else if (computerSelection < 0.67) {
         return "paper";
     } else {
         return "scissors";
@@ -16,6 +17,7 @@ function computerPlay() {
 
 function playRound() {
 
+    gameNumber++
     let computerChoice = computerPlay();
     console.log(computerChoice);
     playerSelection = playerSelection.toLowerCase();
@@ -68,24 +70,16 @@ function playRound() {
                 + comparison + ".";
         }
     
-    // incorrect response penalty
+    // error response
     } else {
-        alert("You have to choose a valid response: -1 point.")
-        return comparison = parseFloat(comparison) + -1;
-    }
-}
-
-// plays 5 rounds of rock, paper, scissors
-function game() {
-    for (i = 0; i < 5; i++) {
-        playRound();
-        console.log("Your current score is " + comparison + ".");
+        document.getElementById("text").innerHTML = "Something went wrong. Please reload the page.";
     }
 }
 
 buttons.forEach((input) => {
     input.addEventListener("click", (e) => {
         playerSelection = input.value;
+        input.focus();
         playRound()
     });
 });
