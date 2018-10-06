@@ -1,9 +1,8 @@
-// global variables
 let comparison = 0;
 let totalScore = 0;
 let playerSelection = "";
+const buttons = document.querySelectorAll("input");
 
-// computer's choice of rock, paper, or scissors
 function computerPlay() {
     let computerSelection = Math.random();
     if (computerSelection <= 0.34) {
@@ -15,57 +14,58 @@ function computerPlay() {
     }
 }
 
-// plays single round of rock, paper, scissors
 function playRound() {
 
-    // computer choice
     let computerChoice = computerPlay();
+    console.log(computerChoice);
+    playerSelection = playerSelection.toLowerCase();
 
-    // makes sure player choice is valid
-    if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
-        
-    } else {
-        playerSelection;
-    }
-
-    // comparison algorithm
     // rock comparison
     if (computerChoice === "rock") {
         if (computerChoice === "rock" && playerSelection === "rock") {
-            alert("The computer chose rock. You tied with the computer.");
-            return comparison -= 0;
+            comparison -= 0;
+            return document.getElementById("text").innerHTML = "You tied. The computer chose rock. Your score is "
+                + comparison + ".";
         } else if (computerChoice === "rock" && playerSelection == "paper") {
-            alert("The computer chose rock. You just beat the computer.");
-            return comparison = (comparison + 1);
+            comparison = (comparison + 1);
+            return document.getElementById("text").innerHTML = "You won. The computer chose rock. Your score is "
+                + comparison + ".";
         } else {
-            alert("The computer chose rock. The computer beat you.");
-            return comparison -= 1;
+            comparison -= 1;
+            return document.getElementById("text").innerHTML = "You lost. The computer chose rock. Your score is "
+                + comparison + ".";
         }
 
     // paper comparison
     } else if (computerChoice === "paper") {
         if (computerChoice === "paper" && playerSelection === "paper") {
-            alert("The computer chose paper. You tied with the computer.");
-            return comparison -= 0;;
+            comparison -= 0;
+            return document.getElementById("text").innerHTML = "You tied. The computer chose paper. Your score is "
+                + comparison + ".";
         } else if (computerChoice === "paper" && playerSelection == "scissors") {
-            alert("The computer chose paper. You just beat the computer.");
-            return comparison = (comparison + 1);
+            comparison = (comparison + 1);
+            return document.getElementById("text").innerHTML = "You won. The computer chose paper. Your score is "
+                + comparison + ".";
         } else {
-            alert("The computer chose paper. The computer beat you.");
-            return comparison -= 1;
+            comparison -= 1;
+            return document.getElementById("text").innerHTML = "You lost. The computer chose paper. Your score is "
+                + comparison+ ".";
         }
  
     // scissors comparison
     } else if (computerChoice === "scissors") {
         if (computerChoice === "scissors" && playerSelection === "scissors") {
-            alert("The computer chose scissors. You tied with the computer.");
-            return comparison -= 0;
+            comparison -= 0;
+            return document.getElementById("text").innerHTML = "You tied. The computer chose scissors. Your score is " 
+                + comparison + ".";
         } else if (computerChoice === "scissors" && playerSelection == "rock") {
-            alert("The computer chose scissors. You just beat the computer.");
-            return comparison = (comparison + 1);
+            comparison = (comparison + 1);
+            return document.getElementById("text").innerHTML = "You won. The computer chose scissors. Your score is "
+                + comparison + ".";
         } else {
-            alert("The computer chose scissors. The computer beat you.");
-            return comparison -= 1;
+            comparison -= 1;
+            return document.getElementById("text").innerHTML = "You lost. The computer chose scissors. Your score is "
+                + comparison + ".";
         }
     
     // incorrect response penalty
@@ -83,9 +83,9 @@ function game() {
     }
 }
 
-// new code
-let button = document.querySelectorAll("#btn");
-    button.addEventListener("click", () => {
-    playerSelection = button.value;
-    console.log(playerSelection);
-})
+buttons.forEach((input) => {
+    input.addEventListener("click", (e) => {
+        playerSelection = input.value;
+        playRound()
+    });
+});
